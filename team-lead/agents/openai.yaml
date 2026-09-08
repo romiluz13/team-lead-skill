@@ -1,0 +1,4 @@
+interface:
+  display_name: "Team Lead"
+  short_description: "Lead an adaptive agent team with durable project memory"
+  default_prompt: "Use $team-lead to onboard my project and the agents I provide, then lead the team through the agreed outcome."
