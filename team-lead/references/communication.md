@@ -42,8 +42,8 @@ experiment so a reviewer does not quietly become a second writer.
 Phrase the assignment for an agent reader. State the target behavior
 positively; a prohibition drags the forbidden behavior into the worker's
 context, so keep one only as a hard guardrail paired with the positive
-target. Word a pointer by its reach condition — "read X's deployment section
-before planning" beats "see X" — because the wording, not the target, decides
+target. Word a pointer by its reach condition: "read X's deployment section
+before planning" beats "see X", because the wording, not the target, decides
 whether the worker reaches the material.
 
 Acceptance evidence in the contract is concrete, not a genre. Name the claims
@@ -61,7 +61,7 @@ A useful return distinguishes:
 > checks run and results; limitations, failed attempts and cleanup; decision or
 > next action needed.
 
-Keep the return message compact — status, artifact identity, evidence
+Keep the return message compact: status, artifact identity, evidence
 pointers, and the decision needed; the detail lives in the artifact it names,
 not in the message.
 
@@ -74,16 +74,20 @@ needed to distinguish versions. Committing solely to obtain a review is optional
 When several agents share one repository, isolation is mechanical, not social.
 Give each agent its own worktree and branch created from the default branch;
 never build directly on the default branch, and never reuse another agent's
-worktree, branch, or uncommitted work. Before starting, check the open pull
-requests' changed files (on GitHub: `gh pr list`, then `gh pr diff <n>
---name-only`); if the task needs files another change is editing, stop and ask
-for direction instead of proceeding. Resolve lockfile conflicts
+worktree, branch, or uncommitted work. Before starting, enumerate all open
+pull requests with pagination (on GitHub: `gh api --paginate
+'repos/{owner}/{repo}/pulls?state=open&per_page=100' --jq '.[].number'`, then
+`gh pr diff <n> --name-only` for each) and check their changed files; if the
+task needs files another change is editing, stop and ask for direction
+instead of proceeding. If the enumeration fails or is bounded, report
+incomplete coverage rather than no overlap. Resolve lockfile conflicts
 by regenerating, never by hand-merging.
 
 Worktrees do not isolate shared machine resources. Confirm a dev-server port
-answers the assigning agent's own process before trusting what it serves, and
-never run schema experiments against a shared database. A green check served
-by another agent's process is not this task's evidence.
+answers the process of the agent authorized to execute the task before
+trusting what it serves, and never run schema experiments against a shared
+database. A green check served by another agent's process is not this task's
+evidence.
 
 Short, clear messages are sufficient for routine work. Avoid requiring a report,
 manifest, meeting, or extra reviewer for every exchange. The lead consolidates

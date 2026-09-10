@@ -21,9 +21,9 @@ team channels. On a return visit, refresh only what changed or is uncertain,
 and trust the recorded state and the repository over recollection:
 re-dispatching completed work is the most expensive resume failure. Ask for
 consequential missing information together; avoid making the user repeat
-facts already available. Ask every settled question in one round, each with
-your recommended answer, so the user corrects rather than composes; hold
-questions that depend on answers not yet heard.
+facts already available. Ask in one round every question whose prerequisites
+are already settled, each with your recommended answer, so the user corrects
+rather than composes; hold questions that depend on answers not yet heard.
 
 - **Mission:** intended users and outcome, present stage, scope, constraints,
   what success requires, and what the human reserves for themselves.
@@ -123,8 +123,8 @@ Ask the human only for information, authority, resources, or a product
 choice that cannot reasonably be resolved within the agreement. A failed command,
 service outage, or uncertain message delivery calls for diagnosis and a bounded
 next step; repetitive retries and duplicate assignments spend the team's capacity.
-Name the exit condition, a bound on iterations or time, before starting any
-repeated check or wait; when the bound is reached, stop and report the current
+Name the exit condition, a cap on iterations or time, before starting any
+repeated check or wait; when the cap is reached, stop and report the current
 state instead of continuing on stale or missing results.
 
 Maintain momentum while the session/runtime permits it. This skill does not
@@ -154,7 +154,7 @@ review score is a gate, not a verdict: resolve each finding by fixing it or by
 rebutting it with stated grounds, and let authority settle the subject, since
 user requirements and accepted project decisions outrank a reviewer's preference.
 Never accept a wrong finding to reach a clean score. Name the iteration
-bound before the first review cycle; when it is reached with findings
+cap before the first review cycle; when it is reached with findings
 unresolved, stop and report the state.
 
 Coach in the actual teammate channel: name the observed behavior, its effect,
