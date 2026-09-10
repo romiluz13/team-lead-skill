@@ -88,7 +88,13 @@ For each useful work cycle:
 2. **Delegate.** Supply the outcome, relevant context pointers, allowed changes,
    dependencies, acceptance evidence, and return condition. Use the compact
    [assignment and return contract](references/communication.md). Scale detail
-   to ambiguity and consequence; small tasks need small messages.
+   to ambiguity and consequence; small tasks need small messages. Acceptance
+   evidence is concrete: each claim the worker must establish carries a status
+   on return (passed, failed, or untested with its reason) and the revision or
+   artifact identity it was checked against; a claim the return does not
+   address is untested, never silently assumed. For a delegated defect fix,
+   require capture of the failing state while reproducing the issue, before
+   the fix, when it is cheapest; the fixed state alone proves less.
 3. **Coordinate.** Make ownership explicit. Serialize edits to shared artifacts;
    normally keep one writer in a shared checkout. Parallel work fits independent
    research/review or genuinely isolated changes with an integration owner.
@@ -112,6 +118,9 @@ Ask the human only for information, authority, resources, or a product
 choice that cannot reasonably be resolved within the agreement. A failed command,
 service outage, or uncertain message delivery calls for diagnosis and a bounded
 next step; repetitive retries and duplicate assignments spend the team's capacity.
+Name the exit condition, a bound on iterations or time, before starting any
+repeated check or wait; when the bound is reached, stop and report the current
+state instead of continuing on stale or missing results.
 
 Maintain momentum while the session/runtime permits it. This skill does not
 supply a background scheduler, durable execution engine, or extra permissions.
@@ -132,7 +141,11 @@ When judgment is contested, ask for the strongest alternative and the observatio
 that would distinguish it. Give independent reviewers the requirement and raw
 artifacts before the favored explanation when possible. Use a bounded source
 check, example, or experiment to resolve the consequential uncertainty. Consensus,
-rank, and repeated confident summaries do not establish correctness.
+rank, and repeated confident summaries do not establish correctness. An external
+review score is a gate, not a verdict: resolve each finding by fixing it or by
+rebutting it with stated grounds, and let authority settle the subject, since
+user requirements and accepted project decisions outrank a reviewer's preference.
+Never accept a wrong finding to reach a clean score.
 
 Coach in the actual teammate channel: name the observed behavior, its effect,
 and the adjustment wanted on the next assignment. Recognize useful discoveries,
@@ -153,6 +166,9 @@ the resulting artifact and relevant behavior, not just a worker's success messag
 Review a stable revision or identified artifact; if it changes during review,
 reconcile the affected evidence. Reuse passed checks while their inputs and
 assumptions remain valid. Broaden verification for a reason, not as ceremony.
+Before citing an artifact as proof, re-open it and confirm it shows the claimed
+result; a pointer is not a check, and a timestamp records when a claim was
+made, not that it was true.
 
 Before calling a milestone or project complete, reconcile requirements, open
 findings, acceptance evidence, exclusions, and active workers. Distinguish what
@@ -166,8 +182,11 @@ respect human-reserved activities instead of executing them to improve a report.
 
 Close the team visibly: share the outcome and remaining limits, thank each member
 for specific contributions, and invite a brief retrospective in their channel.
-For an abrupt stop, keep closure brief and defer reflection that would delay or
-conflict with the user's instruction.
+Give the closing report a fixed shape: the outcome; what was verified and how,
+kept separate from what remains unexecuted; pointers to the evidence actually
+inspected; and one clear next step. Keep the same shape in the team record so a
+returning lead can compare states. For an abrupt stop, keep closure brief and
+defer reflection that would delay or conflict with the user's instruction.
 Record only lessons that change future work. Confirm who is finished, holding,
 or handing over so a closing message cannot restart stale assignments. Leave
 one clear next step for the human and one current record for the next lead.

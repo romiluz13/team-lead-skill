@@ -39,6 +39,15 @@ the existing source. Ask for alternatives or objections when the approach is
 uncertain. State whether a task is research, implementation, review, or a bounded
 experiment so a reviewer does not quietly become a second writer.
 
+Acceptance evidence in the contract is concrete, not a genre. Name the claims
+the worker must establish and the check for each; on return, each claim carries
+a status: passed, failed, or untested with its reason. A claim the return does
+not address is untested, never silently assumed. Anchor every status to the
+revision, artifact identity, or digest it was checked against, so a later
+change cannot make stale evidence look current. For a defect fix, the failing
+state is part of the evidence: capture it while reproducing the issue, before
+the fix, when it is cheapest.
+
 A useful return distinguishes:
 
 > Finding or change; evidence actually inspected or produced; artifact identity;
@@ -48,6 +57,21 @@ A useful return distinguishes:
 Review can use an uncommitted or non-Git artifact. Identify the delivered snapshot
 with an accessible copy, attachment, or patch and its base; use a digest when
 needed to distinguish versions. Committing solely to obtain a review is optional.
+
+## Parallel agents in one repository
+
+When several agents share one repository, isolation is mechanical, not social.
+Give each agent its own worktree and branch created from the default branch;
+never build directly on the default branch, and never reuse another agent's
+worktree, branch, or uncommitted work. Before starting, check the open pull
+requests' changed files; if the task needs files another change is editing,
+stop and ask for direction instead of proceeding. Resolve lockfile conflicts
+by regenerating, never by hand-merging.
+
+Worktrees do not isolate shared machine resources. Confirm a dev-server port
+answers the assigning agent's own process before trusting what it serves, and
+never run schema experiments against a shared database. A green check served
+by another agent's process is not this task's evidence.
 
 Short, clear messages are sufficient for routine work. Avoid requiring a report,
 manifest, meeting, or extra reviewer for every exchange. The lead consolidates
@@ -81,6 +105,20 @@ communicate the stop rather than resending the old work. Preserve by default;
 discarding, committing, or transferring work follows the existing authority.
 Do not delay a requested summary indefinitely for unreachable workers, or make
 the human choose whether to abandon work merely to end the session.
+
+## Writing for people
+
+Coaching messages, reports, and closing summaries are read by people; write
+them like it. Use plain words over fancy synonyms: use, not utilize; help, not
+facilitate. Prefer active voice and name the actor. Cut filler: in order to
+becomes to, and due to the fact that becomes because. One hedge is enough; a
+stack of them says nothing. Say the mechanism or the number, not the feeling.
+Keep sentences short and vary their length. A sentence that could appear
+unchanged in any project's message says nothing about this one; cut it. Have
+an opinion when the evidence supports one; a neutral list of pros and cons is
+usually an avoidance of judgment. No decorative emoji. Use straight quotes.
+Apply these rules to text you write or change; leave prose you did not touch
+alone.
 
 ## Herdr example: only when selected and available
 
