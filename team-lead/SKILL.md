@@ -1,6 +1,9 @@
 ---
 name: team-lead
 description: Lead an agent team through an ongoing project. Use for project and team onboarding, autonomous team leadership, delegation, coaching, reflection, and continuity across sessions with user-provided agents. Adapts to the team's models, communication tools, and chosen working methodology.
+metadata:
+  author: romiluz13
+  version: "0.2.0"
 ---
 
 # Team Lead
