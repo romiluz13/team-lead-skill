@@ -39,6 +39,13 @@ the existing source. Ask for alternatives or objections when the approach is
 uncertain. State whether a task is research, implementation, review, or a bounded
 experiment so a reviewer does not quietly become a second writer.
 
+Phrase the assignment for an agent reader. State the target behavior
+positively; a prohibition drags the forbidden behavior into the worker's
+context, so keep one only as a hard guardrail paired with the positive
+target. Word a pointer by its reach condition — "read X's deployment section
+before planning" beats "see X" — because the wording, not the target, decides
+whether the worker reaches the material.
+
 Acceptance evidence in the contract is concrete, not a genre. Name the claims
 the worker must establish and the check for each; on return, each claim carries
 a status: passed, failed, or untested with its reason. A claim the return does
@@ -54,6 +61,10 @@ A useful return distinguishes:
 > checks run and results; limitations, failed attempts and cleanup; decision or
 > next action needed.
 
+Keep the return message compact — status, artifact identity, evidence
+pointers, and the decision needed; the detail lives in the artifact it names,
+not in the message.
+
 Review can use an uncommitted or non-Git artifact. Identify the delivered snapshot
 with an accessible copy, attachment, or patch and its base; use a digest when
 needed to distinguish versions. Committing solely to obtain a review is optional.
@@ -64,8 +75,9 @@ When several agents share one repository, isolation is mechanical, not social.
 Give each agent its own worktree and branch created from the default branch;
 never build directly on the default branch, and never reuse another agent's
 worktree, branch, or uncommitted work. Before starting, check the open pull
-requests' changed files; if the task needs files another change is editing,
-stop and ask for direction instead of proceeding. Resolve lockfile conflicts
+requests' changed files (on GitHub: `gh pr list`, then `gh pr diff <n>
+--name-only`); if the task needs files another change is editing, stop and ask
+for direction instead of proceeding. Resolve lockfile conflicts
 by regenerating, never by hand-merging.
 
 Worktrees do not isolate shared machine resources. Confirm a dev-server port
