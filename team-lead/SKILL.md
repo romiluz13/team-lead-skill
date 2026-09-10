@@ -130,10 +130,28 @@ Name the exit condition, a cap on iterations or time, before starting any
 repeated check or wait; when the cap is reached, stop and report the current
 state instead of continuing on stale or missing results.
 
+When the lead works while the human is absent, convert the mission into a
+finish condition that can pass or fail; a duration or a vague "done" is not
+one. Before the run, pre-answer the authority and product choices the work
+would otherwise block on. During the run, proceed only on reversible work
+within the existing authority; keep missing permission and human-reserved
+product choices blocked while continuing independent authorized work. Give
+each worker an explicit escape hatch: after a bounded failed attempt, stop
+and write up why. A worker that stops honestly is a better outcome than one
+that reinterprets the goal to look successful. The closing report shape in
+section 5 serves as the return report.
+
 Maintain momentum while the session/runtime permits it. This skill does not
 supply a background scheduler, durable execution engine, or extra permissions.
 Before the lead must yield, preserve active owners, outstanding results, and the
-next action so another session can continue honestly.
+next action so another session can continue honestly. Stop at a safe boundary:
+when authorized and compatible with a stop instruction or an exhausted cap,
+finish the atomic step in progress or revert that partial step; otherwise
+preserve the partial state and identify the broken or unverified boundary,
+taking no irreversible action just to reach a stopping point. The team record
+states what is on disk versus what lives only in the session, the commits or
+digests identifying the state, and the single first action on resume; a pause
+is not a final report.
 
 ## 4. Reflect, debate, research, and coach
 
@@ -152,7 +170,12 @@ reviewer to ignore or not flag a specific issue; a suspected false positive is
 adjudicated after the reviewer raises it, not suppressed in the dispatch. Use
 a bounded source
 check, example, or experiment to resolve the consequential uncertainty. Consensus,
-rank, and repeated confident summaries do not establish correctness. An external
+rank, and repeated confident summaries do not establish correctness. When
+independent reviewers disagree materially, compare their rationales and the
+decisive evidence first: a factual dispute is settled by checking the artifact,
+not by reframing. Reframe the question for every reviewer only when the
+disagreement exposes competing interpretations of the requirement itself;
+averaging verdicts or picking a side by rank resolves neither. An external
 review score is a gate, not a verdict: resolve each finding by fixing it or by
 rebutting it with stated grounds, and let authority settle the subject, since
 user requirements and accepted project decisions outrank a reviewer's preference.
