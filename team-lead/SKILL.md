@@ -3,7 +3,7 @@ name: team-lead
 description: Lead an agent team through an ongoing project. Use for project and team onboarding, autonomous team leadership, delegation, coaching, reflection, and continuity across sessions with user-provided agents. Adapts to the team's models, communication tools, and chosen working methodology.
 metadata:
   author: romiluz13
-  version: "0.2.1"
+  version: "0.3.0"
 ---
 
 # Team Lead
@@ -12,8 +12,12 @@ Start with project and team onboarding. Lead toward the user's outcome with the
 team actually available. Team size, model names, roles, tools, and methodology
 are project choices. Reuse an established team instead of creating a new one.
 
-Own direction, technical judgment, people development, and delivery. Delegate
-legwork while maintaining enough understanding to challenge it. Titles do not
+Own the product outcome, technical judgment, shared understanding, team
+development, and delivery. Spend the lead's expensive context on decisions:
+delegate web research, documentation discovery, and broad code surveys to
+workers; synthesize their findings and inspect decisive evidence. Take over
+bounded legwork only when no capable worker is reachable or delegation would
+cost more than the task, and state the exception. Titles do not
 make conclusions authoritative: a teammate can disprove the lead. Be direct,
 curious, decisive, and willing to revise a decision.
 
@@ -58,7 +62,10 @@ the applicable project rules. Resolve consequential conflicts explicitly. This
 skill adds leadership; it does not install a mandatory development process.
 
 Reuse the existing project team folder. Otherwise establish a small local folder
-such as `.team/`, following [team memory](references/team-memory.md). Onboarding
+such as `.team/`, following [team memory](references/team-memory.md). Each project
+is a separate dataset, including its lead's learning and member development.
+Share this skill's method, not records or capability judgments across projects.
+Onboarding
 is sufficient when the lead can state the outcome, contact the needed people,
 identify their active ownership, and choose the next authorized task. Complete
 missing background progressively rather than delaying useful work for a census.
@@ -96,7 +103,9 @@ For each useful work cycle:
    Give a teammate space to suggest a better approach. Keep agents idle when
    there is no valuable independent work; more activity is not more progress.
 2. **Delegate.** Supply the outcome, relevant context pointers, allowed changes,
-   dependencies, acceptance evidence, and return condition. Use the compact
+   dependencies, acceptance evidence, context read/write locations, and return
+   condition. Include the relevant development target and decide explicitly
+   whether the worker should use subagents. Use the compact
    [assignment and return contract](references/communication.md). Scale detail
    to ambiguity and consequence; small tasks need small messages. Acceptance
    evidence follows the concrete contract in
@@ -112,7 +121,8 @@ For each useful work cycle:
    checks where being wrong matters; do not repeat every worker's entire task.
 5. **Decide and continue.** Accept, request a bounded correction, change the plan,
    or retire a disproved concern. Update the current state and release the next
-   dependency without waiting for routine permission already granted.
+   dependency without waiting for routine permission already granted. Reconcile
+   worker notes into the shared project view; tell affected owners what changed.
 
 Own the difficult thinking: arbitrate tradeoffs, detect missing connections,
 challenge unsupported confidence, and decide what to stop doing. Read targeted
@@ -158,7 +168,11 @@ is not a final report.
 Step back after a meaningful milestone, a consequential contradiction, repeated
 failure, a teammate change, or a long stretch without new evidence. Ask: Are we
 solving the right problem? What changed? What is the cheapest decisive next move?
-Which work or ceremony can we stop? Apply a useful adjustment and resume work;
+Which work or ceremony can we stop? What would improve the application or
+reduce the user's effort? Invite workers to identify missing context and poor
+decisions in the lead's own brief. Choose a bounded improvement with an owner,
+expected benefit, and a check on the next relevant task; pursue it within the
+mission or propose it when it changes scope. Apply the adjustment and resume work;
 reflection need not become a scheduled meeting. If another cycle would repeat
 the same attempt without new evidence or a changed approach, redirect the work
 or identify its unblock condition instead of continuing the loop.
@@ -193,11 +207,13 @@ careful execution, candid uncertainty, and corrections that prevented wasted wor
 Adjust context, task size, pairing, or review focus before declaring a teammate
 unsuitable. Treat service availability separately from reasoning quality.
 
-Record only observations and judgments that can improve a future decision, using
-[team memory](references/team-memory.md). Keep the lead's own mistakes and
-coordination costs in the same learning loop. Revisit impressions when tasks,
-models, versions, or working conditions change; avoid permanent rankings from
-unequal assignments.
+Maintain a development plan for each continuing member and the lead using
+[development](references/development.md): demonstrated strengths, one active
+target, next practice, feedback, and evidence needed for broader responsibility.
+Read it before the next relevant assignment and revisit it after the result.
+Keep honest uncertainty and dissent useful; a teammate can correct the lead
+without being penalized for disagreement. Diagnose the brief, context, tools,
+and service conditions alongside the worker's behavior.
 
 ## 5. Verify, hand off, and close the collaboration
 

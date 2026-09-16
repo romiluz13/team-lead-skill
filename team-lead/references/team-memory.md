@@ -3,7 +3,16 @@
 Read when establishing the project folder, recording coaching, reflecting, or
 resuming a team. The folder should let a returning lead make a sound next
 decision without reading the entire conversation. It is a maintained working
-model, not a transcript, personnel database, or collection of private thoughts.
+model with development records, not a transcript or collection of private thoughts.
+
+## Project boundary
+
+Bind the folder to one project identity and workspace. Keep that project's lead
+history, member profiles, development plans, decisions, and evidence there.
+The same model or member name in another project starts with unknown capability
+in this project. Do not search, import, merge, or maintain cross-project profiles.
+A shared skill supplies the method, not a shared team dataset. Moving records
+between projects requires a separate explicit user request.
 
 ## Start small and reuse what exists
 
@@ -16,7 +25,8 @@ conflicts. A long-running project may grow into:
 .team/
   state.md             Current outcome, roster, ownership, next actions
   project.md           Durable project view and working agreement, if substantial
-  people/<member>.md   Useful observations and next-assignment guidance
+  people/<member>.md   Project-local capability evidence and development plan
+  people/lead.md       Lead development and coordination improvements
   tasks/<task>.md      Bounded task context and evidence, when a message is insufficient
 ```
 
@@ -52,42 +62,32 @@ Store raw logs or large artifacts separately only when they are useful evidence.
 Preserve significant failures and their eventual disposition without copying the
 same log or status into multiple files.
 
-## Teammate observations and coaching
+## Worker context contract
 
-Create a member note when there is a useful observation to retain. A model name
-alone is not a performance record. Track the actual member/session and the task
-conditions; a replacement using the same display name is not automatically the
-same teammate. Mark missing context as unknown instead of reconstructing a
-convenient history for an inherited judgment.
+At dispatch, give the worker the project boundary, relevant state/task/decision
+pointers, applicable feedback, and exact write location. Explain what it owns and
+what only the lead may accept into shared state. Send the smallest context that
+supports sound judgment, not the whole team's history. If a worker cannot reach
+a file, supply the relevant excerpt and its artifact identity.
 
-Use this compact shape, adapting it to the evidence:
+The worker reads that context before acting. At a meaningful decision, blocker,
+or handoff, it updates its task note with:
 
-| Field | What belongs here |
-| --- | --- |
-| Context | Date, member/model identification, task, artifact, scope and relevant constraints |
-| Observation | What the teammate did, discovered, delivered, or missed; link the supporting record |
-| Interpretation | The lead's tentative judgment and alternative explanations |
-| Next guidance | A concrete change to assignment, context, pairing, verification, or coaching |
-| Revisit | Later evidence that confirmed, weakened, or replaced the interpretation |
+- Current result and artifact/revision; checks and their observed outcomes.
+- Decisions and concise rationale, uncertainties, and what would change the answer.
+- Failed approaches worth avoiding and the next concrete action.
+- What worked, what needs adjustment, and whether the previous feedback helped.
 
-Example, fictional and illustrative:
+Store useful conclusions, not private reasoning transcripts or invented feelings.
+Record reflection as the worker's assessment until evidence supports it. A worker
+proposes a general lesson; the lead checks it before changing the shared view or
+member record. Use [development](development.md) for coaching and responsibility
+changes. Keep task notes and accepted team state under separate ownership.
 
-> River traced an import failure through two downstream callers and produced a
-> minimal reproducer. The report also assumed a helper was public without checking
-> exports. This suggests a useful fit for boundary investigations; next time ask
-> for the exact export/caller chain before classifying public impact. One observed
-> task supports this assignment choice, not a general model ranking.
-
-Balance strengths and errors. Separate product defects, faulty research claims,
-harness mistakes, instruction-following problems, and service outages. Do not
-invent numerical error rates or compare raw counts across unequal work. Record
-feedback delivered and whether the next similar task improved. Coaching changes
-instructions and working conditions; it does not claim to retrain the model.
-
-Apply the same scrutiny to the lead: missing context, shifting scope, excessive
-review, poor task division, or premature acceptance may explain a worker's result.
-Invite disagreement and corrections to the record. Retain candid feedback without
-hostility, model stereotypes, or ceremonial performance grades.
+Before compaction or a session change, save work still held only in context.
+On receipt, the lead reconciles accepted results, dependencies, and decisions;
+notifies affected owners; and keeps one first action for resume. Keep necessary
+raw evidence outside the short summary and link it rather than duplicating it.
 
 ## Refresh instead of accumulating
 

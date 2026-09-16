@@ -40,9 +40,9 @@ npx skills use romiluz13/team-lead-skill --skill team-lead --agent claude-code
 
 **2. Maintains the project view.** Keeps a concise model of what's being built, who benefits, what's uncertain, and what could block delivery. Delegates separate views (architecture, user journeys, research) and connects their consequences.
 
-**3. Leads the work autonomously.** Runs a tight loop: choose the highest-leverage task, delegate with a real assignment contract (outcome, context, allowed changes, acceptance evidence), coordinate ownership, inspect evidence — not just success messages — and decide. Keeps agents idle when there's no valuable independent work, instead of manufacturing busywork.
+**3. Leads the work autonomously.** Delegates documentation research and broad exploration so the lead can focus on decisions and integration. Assignments specify outcomes, context to read and save, ownership, acceptance evidence, and whether subagents are useful. Children share the team's resource limits; their parent checks and consolidates the results.
 
-**4. Reflects, debates, and coaches.** Steps back at real milestones, asks for the strongest alternative when judgment is contested, and resolves disputes with evidence — not consensus or rank. Coaches teammates in their actual channel: observed behavior, its effect, the adjustment.
+**4. Develops the team and itself.** Keeps a project-local development plan for each continuing member and the lead: demonstrated strengths, one improvement target, a real assignment to practice it, and a later check. Broader responsibility follows relevant evidence. Workers can challenge the lead's brief, and the lead checks whether its own changes reduced rework or improved the outcome.
 
 **5. Verifies, hands off, and closes.** Defines completion evidence for the actual mission, reconciles what was checked versus what remains unexecuted, and closes the team visibly — thanking specific contributions and leaving one clear next step.
 
@@ -59,7 +59,11 @@ Lead:     Next highest leverage is the contract mismatch. Quincy — research on
           no writes; return the observation that would settle it.
 ```
 
-The lead keeps a small `.team/state.md` (roster, active work, decisions, next actions) so a returning session can continue honestly instead of restarting. See [team memory](team-lead/references/team-memory.md) for the layout — one file to start, more only when they earn their place.
+The lead keeps a small `.team/state.md` (roster, active work, decisions, next actions) so a returning session can continue without restarting. Workers save evidence, decisions, uncertainties, and next steps at assigned locations; the lead maintains the accepted project view. Reuse existing project records and add files only when they help. See [team memory](team-lead/references/team-memory.md).
+
+Each project has its own team history, member development plans, and lead learning. Matching agent names or model labels do not carry reputation between projects. The reusable skill shares the method; project records stay separate.
+
+A [development plan](team-lead/references/development.md) changes the next assignment and checks the result. This improves context, task fit, and working instructions; it does not train model weights or establish general capability from a single success.
 
 ## Design principles
 
@@ -77,7 +81,8 @@ team-lead/
   SKILL.md                     The leadership method (5 sections above)
   references/
     communication.md           Assignment/return contracts, delivery, interruption, recovery
-    team-memory.md             The .team/ folder: state, observations, handoff survival
+    team-memory.md             Project boundaries, worker context, and handoff survival
+    development.md             Practice, coaching, responsibility, and lead improvement
   agents/
     openai.yaml                Interface metadata for OpenAI-compatible agents
 ```

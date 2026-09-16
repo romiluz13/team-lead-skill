@@ -32,7 +32,8 @@ Give each assignment enough context to make independent judgment possible:
 
 > Outcome and reason; source/task pointers or self-contained context; current
 > artifact/revision; ownership and allowed changes; dependencies and constraints;
-> acceptance evidence; when and how to return.
+> acceptance evidence; context to read and where to save work; relevant development
+> target; subagent policy and shared resource limits; when and how to return.
 
 Include methodology instructions only when applicable, preferably by reference to
 the existing source. Ask for alternatives or objections when the approach is
@@ -68,6 +69,32 @@ not in the message.
 Review can use an uncommitted or non-Git artifact. Identify the delivered snapshot
 with an accessible copy, attachment, or patch and its base; use a digest when
 needed to distinguish versions. Committing solely to obtain a review is optional.
+
+## Delegate research and control recursive work
+
+Assign routine web/docs research and broad code exploration to workers. Have them
+return the answer, primary-source pointers with version/scope, contradictory
+evidence, and what remains unknown. The lead synthesizes implications and checks
+the decisive evidence rather than repeating the search.
+
+For each assignment choose: work directly, use named independent subagents, or
+let the worker decide within an explicit envelope. Use children for independent
+questions, useful context isolation, or independent review. Keep a small lookup
+or tightly dependent edit with its owner; spawning is not evidence of progress.
+
+State the allowed child roles, available slots, shared time/iteration or token
+budget where measurable, and the escalation/stop condition. Count descendants
+against the same team limits; delegation does not reset the allowance. If cost
+is unavailable, say so and bound calls, time, or rounds instead. Verify actual
+harness capacity and authority before spawning; use an existing worker or a
+serial plan when children are unavailable. Change models only when authorized.
+
+The parent gives children the same project boundary, necessary context pointers,
+artifact ownership, and evidence contract; it checks and synthesizes their returns.
+It reports active descendants and remaining work to the lead before yielding.
+When limits are reached, return partial findings and the missing evidence instead
+of launching another layer. Propagate stops and confirm descendant status using
+the recovery rules below.
 
 ## Parallel agents in one repository
 
