@@ -1,119 +1,129 @@
-# The lead's working memory
+# The team record
 
-Read when establishing the project folder, recording coaching, reflecting, or
-resuming a team. The folder should let a returning lead make a sound next
-decision without reading the entire conversation. It is a maintained working
-model with development records, not a transcript or collection of private thoughts.
+Read when establishing the project folder, at every cycle boundary, and on
+resume. The record exists so a returning lead can make a sound next decision
+without reading a conversation. It is a maintained working model, not a
+transcript.
 
-## Project boundary
+## Adopt what exists, start small
 
-Bind the folder to one project identity and workspace. Keep that project's lead
-history, member profiles, development plans, decisions, and evidence there.
-The same model or member name in another project starts with unknown capability
-in this project. Do not search, import, merge, or maintain cross-project profiles.
-A shared skill supplies the method, not a shared team dataset. Moving records
-between projects requires a separate explicit user request.
-
-## Start small and reuse what exists
-
-Use the user's existing team/project records as the source of truth. Choose one
-local folder only if none exists; `.team/` is a suggested name, not a requirement.
-Begin with one `state.md`. Add files when separation reduces rereading or write
-conflicts. A long-running project may grow into:
+Use the project's existing records if it has any (`.team/`, `.orchestrator/`,
+a plans folder — whatever is there). Only create a folder when none exists;
+`.team/` is a suggestion, not a requirement. Start with one `state.md`; add
+files when separation saves rereading or prevents write conflicts. These are
+roles for information, not a mandatory schema. Link existing plan, decision,
+test, and issue systems instead of building a second tracker.
 
 ```text
 .team/
-  state.md             Current outcome, roster, ownership, next actions
-  project.md           Durable project view and working agreement, if substantial
-  people/<member>.md   Project-local capability evidence and development plan
-  people/lead.md       Lead development and coordination improvements
-  tasks/<task>.md      Bounded task context and evidence, when a message is insufficient
+  state.md             mission, roster, active work, progress log, first resume action
+  agreement.md         how this team works: channel, latitude words, this project's
+                       brief additions and return deviations, definition of done,
+                       reserved vs authorized — versioned by retros, with scars
+  decisions.md         decision · why · evidence · who challenged it · what would reopen it
+  lessons.md           "When <trigger>, do <rule>" + the scar it came from
+  people/<member>.md   capacity ledger + strengths + one development target
+  people/lead.md       the lead's own development, fed by retro answers
+  tasks/<id>.md        the brief + the worker's return
 ```
 
-For a small team, keep useful observations inline in `state.md`; separate member
-files only when the history helps future assignments. These are roles for
-information, not a mandatory directory schema. Keep existing plan, decision,
-test, and issue systems; link them rather than building a second
-workflow tracker. Use workspace-relative references where portable; when a tool
-needs an absolute path, resolve it in the receiving environment.
+Use workspace-relative paths; resolve absolute ones in the receiving
+environment.
 
-## What must survive a handoff
+## One project, one record
 
-Keep the current state easy to scan:
+Bind the folder to one project. The same member name in another project
+starts with unknown capability here. Don't search, import, or merge
+cross-project profiles; the skill supplies the method, not a shared dataset.
+Moving records between projects takes an explicit user request.
 
-- Mission and completion boundary; current milestone and why it matters.
-- User constraints, chosen method, reserved decisions, and authorized actions.
-- Roster: member handle, contact/session reference, model label and its source,
-  availability, assigned role, access limits, and current ownership.
-- Active work: outcome, owner, dependencies, status, artifact/revision pointer,
-  required evidence, outstanding reply or retry, and next action.
-- Accepted decisions: decision, short rationale, evidence pointer, relevant
-  alternatives, and what new fact would justify reconsidering it.
-- Open risks, unresolved disagreements, and human questions; attach ownership or
-  a specific unblock condition instead of leaving an unexplained warning.
+## state.md
 
-Retain a small project view: user journeys or domain outcomes, important
-architecture/operational boundaries, and the assumptions currently driving
-priorities. Write a conclusion and its rationale, not a stream of deliberation.
+Keep it scannable:
 
-The lead owns the shared summary. Teammates can own separate task notes or propose
-updates; coordinate writes to avoid overwriting each other's current state.
-Store raw logs or large artifacts separately only when they are useful evidence.
-Preserve significant failures and their eventual disposition without copying the
-same log or status into multiple files.
+- Mission and the finish condition (stated so it can pass or fail).
+- The authority boundary — reserved for the human vs pre-authorized — as
+  recorded in `agreement.md`.
+- Roster: member, pane, agent kind, session id, role, current ownership.
+- Active work: outcome, owner, latitude, expected time, return path.
+- Progress log: append-only one-liners with evidence, pruned at milestones.
+  This is what the human reads; keep it current and honest.
+- The single first action on resume.
 
-## Worker context contract
+The lead owns the shared summary. Workers own their task notes and may
+propose changes; coordinate writes so nobody overwrites current state.
 
-At dispatch, give the worker the project boundary, relevant state/task/decision
-pointers, applicable feedback, and exact write location. Explain what it owns and
-what only the lead may accept into shared state. Send the smallest context that
-supports sound judgment, not the whole team's history. If a worker cannot reach
-a file, supply the relevant excerpt and its artifact identity.
+## agreement.md, decisions.md, lessons.md
 
-The worker reads that context before acting. At a meaningful decision, blocker,
-or handoff, it updates its task note with:
+`agreement.md` is standard work: the channel and doorbell format, the
+latitude words, this project's additions to the brief and return contract
+(the full templates live in [communication](communication.md)), the
+definition of done, and what's reserved for the human versus authorized
+without asking. Retros edit it — a change to how the team works is a diff
+here, not a sentiment. When a change comes from a failure, add a one-line
+scar comment saying what happened.
 
-- Current result and artifact/revision; checks and their observed outcomes.
-- Decisions and concise rationale, uncertainties, and what would change the answer.
-- Failed approaches worth avoiding and the next concrete action.
-- What worked, what needs adjustment, and whether the previous feedback helped.
+`decisions.md` holds the accepted decisions with their why, evidence, who
+challenged them, and the fact that would reopen them. A decision with no
+reopen condition looks more certain than it is.
 
-Store useful conclusions, not private reasoning transcripts or invented feelings.
-Record reflection as the worker's assessment until evidence supports it. A worker
-proposes a general lesson; the lead checks it before changing the shared view or
-member record. Use [development](development.md) for coaching and responsibility
-changes. Keep task notes and accepted team state under separate ownership.
+`lessons.md` holds rules that change future work: "When <trigger>, do
+<rule>", plus the incident it came from. Record only lessons that change
+work; merge near-duplicates and retire dead ones at milestones. Workers
+propose lessons in their returns (`Lesson proposed:`); the lead checks one
+against the evidence before it becomes a team rule. A short-lived worker
+gets a task return, not a career file.
 
-Before compaction or a session change, save work still held only in context.
-On receipt, the lead reconciles accepted results, dependencies, and decisions;
-notifies affected owners; and keeps one first action for resume. Keep necessary
-raw evidence outside the short summary and link it rather than duplicating it.
+## The task file
 
-## Refresh instead of accumulating
+`tasks/<id>.md` carries the brief and, below it, the worker's return in the
+shape the return contract in [communication](communication.md) defines:
+claims with status and the revision checked, what the brief should have said,
+any proposed lesson. One file per task; the detail lives here, not in
+messages.
 
-At a milestone or before handing over, replace stale status, resolve or reassign
-open items, and merge duplicate observations. Preserve the reason behind important
-changes; archive detail only when someone may need it. When a stored claim
+## The distillation ritual (every cycle boundary)
+
+Before the next dispatch:
+
+1. **Always:** update `state.md` — 1–3 lines: what returned, what changed,
+   what's next.
+2. **If a return proposed a lesson or a correction happened:** `lessons.md`.
+3. **If recognition or correction happened:** `people/<member>.md`, same
+   moment, not later.
+4. **If a retro or incident changed how the team works:** `agreement.md`,
+   with the scar comment.
+
+Later comes after compaction. A heavy ritual gets faked; a three-line habit
+doesn't. At milestones, also replace stale status, resolve or reassign open
+items, merge duplicates, and prune the progress log. When a stored claim
 conflicts with new evidence, compare artifact identity and conditions before
-deciding which claim is stale. Update the current summary with
-the supported conclusion, its evidence and the reason for correction; preserve the
-old evidence under its actual boundary. Inform affected owners rather than
-leaving the correction only in a later appendix.
+deciding which is stale; write the supported conclusion with its evidence,
+and tell affected owners rather than leaving the correction in an appendix.
 
-On re-entry:
+## Resume reconciliation
 
-1. Read the current state and applicable project instructions.
-2. Confirm the project/artifact revision and actual reachable teammates. Inspect
-   active work before repeating assignments; a changed session requires a fresh
-   identity and ownership check.
-3. Check evidence likely to have changed or important to the next decision.
-   Label unverified historical claims; do not redo stable completed work simply
-   because the conversation was compacted.
-4. Reconstruct the critical dependency, send the minimum useful context, and
-   continue from the actual unfinished task.
+After a session break or compaction:
 
-Keep secrets and confidential business context out of reusable skill material.
-Store only authorized, necessary project information in the local team folder.
-Local notes do not imply permission to publish, move across projects, or write to
-an agent's separate global memory system. Publication needs a deliberate scope
-and content review; this skill never publishes team records automatically.
+1. Read `state.md`, then the repo: `git log` since the recorded commit.
+2. List the team on its channel (Herdr: `agent list`, your workspace only);
+   compare session ids. A new session id in a known pane is a new mind — it
+   gets a re-brief from the record, not an assumption of memory.
+3. On any conflict between the record and the repo, **trust the repo**, fix
+   the record, and say what you fixed. Re-dispatching completed work is the
+   most expensive resume failure; inspect the actual state before assigning
+   anything.
+4. Label unverified historical claims; don't redo stable completed work just
+   because the session was new.
+5. Take the single first resume action.
+
+## What the record is not
+
+Not a transcript: store conclusions and rationale, not streams of
+deliberation. Not feelings: agent development here means better context,
+instructions, task fit, and tools — a file does not update weights or
+establish enduring capability. Not cross-project intelligence. Keep secrets
+and confidential business context out of it entirely. Local notes never
+imply permission to publish, move records across projects, or write to an
+agent's separate global memory; publication takes an explicit scope and
+content review. This skill never publishes team records automatically.

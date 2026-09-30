@@ -1,181 +1,211 @@
-# Working with the available team channels
+# Briefs, returns, and team channels
 
-Read when onboarding teammates, choosing a communication surface, dispatching
-ambiguous work, or recovering from missing replies. Use real capabilities exposed
-by the current environment. The core leadership method does not depend on this
-file's Herdr example or on any particular agent provider.
+Read when onboarding teammates on a channel, writing a brief for ambiguous
+or consequential work, dispatching review or research, running agents in
+parallel, or recovering from a missing reply or a stop. The method doesn't
+depend on any provider or transport. When the channel is Herdr, also read
+[herdr](herdr.md).
 
 ## Discover before dispatch
 
-Identify the user-provided agents and available channel: terminal sessions,
-subagent tools, an inter-agent inbox, or another explicitly authorized surface.
-Confirm target identity, current activity, workspace and access. Existing busy
-work belongs to its current owner; coordinate a handoff before replacing it.
+Find the real channel: terminal panes, subagent tools, an inbox, or another
+authorized surface. Confirm each target's identity, current activity,
+workspace, and access. Work already in progress belongs to its owner;
+coordinate a handoff before replacing it.
 
-A friendly model name is a label unless the environment exposes verified model
-identity. Record that distinction. Do not change a session's provider or create
-replacement agents merely because a preferred model is absent. Ask for a missing
-connection when required, while continuing work that does not depend on it.
+A friendly model name is a label unless the environment verifies it. Record
+the difference. Don't switch a session's provider or create replacements
+because a preferred model is missing. Ask for a missing connection, and keep
+doing the work that doesn't need it.
 
 Adapt to the transport:
 
-- With a shared filesystem, send a task/plan path plus the smallest necessary
-  instruction. Confirm the recipient can reach the referenced artifact.
-- Without shared storage, transmit the relevant excerpt or attach the artifact,
-  including its identity and limits. Do not send a path the recipient cannot read.
-- With no messaging capability, clearly state what cannot be delegated. Prepare
-  a concise handoff or work locally as authorized; never invent replies.
+- **Shared filesystem:** send a path plus the smallest instruction, and
+  confirm the recipient can read it.
+- **No shared storage:** send the excerpt or attachment with its identity and
+  limits. Never send a path the recipient can't open.
+- **No messaging:** say plainly what can't be delegated, then write a handoff
+  or work locally as authorized. Never invent replies.
 
-## Assignment and return contract
+## The brief
 
-Give each assignment enough context to make independent judgment possible:
+Give enough context for independent judgment, and no more. Small tasks get
+small briefs.
 
-> Outcome and reason; source/task pointers or self-contained context; current
-> artifact/revision; ownership and allowed changes; dependencies and constraints;
-> acceptance evidence; context to read and where to save work; relevant development
-> target; subagent policy and shared resource limits; when and how to return.
+- **Why:** one sentence tying the task to the user's outcome. It's the
+  tiebreaker for every call you didn't anticipate.
+- **Outcome**, not procedure. Leave the approach open where judgment matters.
+- **Kind:** research, implementation, review, or a bounded experiment, so a
+  reviewer doesn't quietly become a second writer.
+- **Latitude:** *Look* (investigate, change nothing) · *Propose* (recommend,
+  the lead decides) · *Do & tell* (decide within these bounds, report) ·
+  *Own* (end to end, report at milestones).
+- **Pointers**, worded by reach condition: "read the deploy section of
+  `ops.md` before planning" beats "see `ops.md`". The wording decides whether
+  the worker reaches the material. Cite method instructions by reference.
+- **Current state:** the artifact or revision to start from; ownership and
+  allowed changes; dependencies and constraints; shared resource limits.
+- **Least sure of:** the assumption most likely wrong, and a request for the
+  one observation that would settle it. This replaces "any concerns?", which
+  gets silence or invented objections.
+- **Done means:** named claims, each with its check (below).
+- **Stop rule:** after a bounded number of failed approaches or a time cap,
+  stop and write up what was learned. Stopping honestly is a good outcome;
+  reinterpreting the goal to look successful isn't.
+- **Development target**, when this task can exercise it, with any earlier
+  feedback that applies.
+- **Subagents:** none, named, or the worker's call within an envelope (below).
+- **Return:** the file to write and how to signal (on Herdr, the doorbell).
 
-Include methodology instructions only when applicable, preferably by reference to
-the existing source. Ask for alternatives or objections when the approach is
-uncertain. State whether a task is research, implementation, review, or a bounded
-experiment so a reviewer does not quietly become a second writer.
+State the target behavior positively. A prohibition pulls the forbidden
+behavior into the worker's context, so keep one only as a hard guardrail,
+paired with the positive target.
 
-Phrase the assignment for an agent reader. State the target behavior
-positively; a prohibition drags the forbidden behavior into the worker's
-context, so keep one only as a hard guardrail paired with the positive
-target. Word a pointer by its reach condition: "read X's deployment section
-before planning" beats "see X", because the wording, not the target, decides
-whether the worker reaches the material.
+## Acceptance evidence
 
-Acceptance evidence in the contract is concrete, not a genre. Name the claims
-the worker must establish and the check for each; on return, each claim carries
-a status: passed, failed, or untested with its reason. A claim the return does
-not address is untested, never silently assumed. Anchor every status to the
-revision, artifact identity, or digest it was checked against, so a later
-change cannot make stale evidence look current. For a defect fix, the failing
-state is part of the evidence: capture it while reproducing the issue, before
-the fix, when it is cheapest.
+Name the claims the worker must establish and the check for each. On return,
+each claim gets a status: **passed**, **failed**, or **untested** with the
+reason. A claim the return doesn't address is untested, never assumed.
+Anchor each status to the revision, artifact identity, or digest it was
+checked against, so a later change can't make old evidence look current.
+For a defect fix, capture the failing state while reproducing, before the
+fix, when it's cheapest.
 
-A useful return distinguishes:
+## The return
 
-> Finding or change; evidence actually inspected or produced; artifact identity;
-> checks run and results; limitations, failed attempts and cleanup; decision or
-> next action needed.
+One spec; the task file (`tasks/<id>.md` in the team record) holds it below
+the brief.
 
-Keep the return message compact: status, artifact identity, evidence
-pointers, and the decision needed; the detail lives in the artifact it names,
-not in the message.
+- **Result:** the finding or change, and the artifact identity (commit,
+  path, digest).
+- **Claims:** each with its status and the revision checked.
+- **Evidence:** what was actually inspected or produced, as pointers.
+- **Limits:** failed approaches, what's unknown, cleanup done or owed.
+- **Decision needed**, if any, with a recommendation.
+- **What I wish the brief had said:** one line, or "nothing".
+- **Lesson proposed:** optional; "When <trigger>, do <rule>". The lead checks
+  it before it enters the shared record.
 
-Review can use an uncommitted or non-Git artifact. Identify the delivered snapshot
-with an accessible copy, attachment, or patch and its base; use a digest when
-needed to distinguish versions. Committing solely to obtain a review is optional.
+Keep the signal message compact: status, task id, and the path. The detail
+lives in the file.
 
-## Delegate research and control recursive work
+A review can target uncommitted or non-Git work. Identify the snapshot with
+an accessible copy or patch and its base, plus a digest when versions could
+be confused. Committing only to get a review is optional.
 
-Assign routine web/docs research and broad code exploration to workers. Have them
-return the answer, primary-source pointers with version/scope, contradictory
-evidence, and what remains unknown. The lead synthesizes implications and checks
-the decisive evidence rather than repeating the search.
+**Research returns** add: the answer, primary sources with version and scope,
+contradicting evidence, and what's still unknown. The lead synthesizes and
+checks the decisive source rather than repeating the search.
 
-For each assignment choose: work directly, use named independent subagents, or
-let the worker decide within an explicit envelope. Use children for independent
-questions, useful context isolation, or independent review. Keep a small lookup
-or tightly dependent edit with its owner; spawning is not evidence of progress.
+## Review and disagreement
 
-State the allowed child roles, available slots, shared time/iteration or token
-budget where measurable, and the escalation/stop condition. Count descendants
-against the same team limits; delegation does not reset the allowance. If cost
-is unavailable, say so and bound calls, time, or rounds instead. Verify actual
-harness capacity and authority before spawning; use an existing worker or a
-serial plan when children are unavailable. Change models only when authorized.
+Give reviewers the requirement and the raw artifacts before your favored
+explanation. The hard lines in SKILL.md apply: no suppressed findings, no
+wrong finding accepted for a clean score, and a named cycle cap.
 
-The parent gives children the same project boundary, necessary context pointers,
-artifact ownership, and evidence contract; it checks and synthesizes their returns.
-It reports active descendants and remaining work to the lead before yielding.
-When limits are reached, return partial findings and the missing evidence instead
-of launching another layer. Propagate stops and confirm descendant status using
-the recovery rules below.
+When reviewers disagree, compare their rationales and the decisive evidence.
+A factual dispute is settled by checking the artifact. Reframe the question
+for everyone only when the disagreement exposes competing readings of the
+requirement. Averaging verdicts or siding by rank settles nothing.
+
+A review score is a gate, not a verdict. Resolve each finding by fixing it
+or rebutting it with stated grounds; user requirements and accepted project
+decisions outrank a reviewer's preference. At the cap with findings open,
+stop and report.
+
+## Subagents and recursion
+
+For each assignment choose: the worker does it directly, uses named
+subagents, or decides within an envelope. Children fit independent
+questions, useful context isolation, or independent review. A small lookup or
+a tightly coupled edit stays with its owner. Spawning is not progress.
+
+The envelope names the allowed child roles, slots, the shared budget (time,
+iterations, or tokens where measurable), and the stop or escalation
+condition. Descendants count against the same team limits; delegation
+doesn't reset the allowance. If cost can't be measured, say so and bound
+calls, time, or rounds. Verify the harness's real capacity and your authority
+before spawning; otherwise use an existing worker or a serial plan. Change
+models only with authority.
+
+A parent gives children the same project boundary, pointers, ownership, and
+evidence contract, and checks their returns. Before yielding, it reports
+active descendants and remaining work. At a limit, it returns partial
+findings and the missing evidence instead of adding another layer.
 
 ## Parallel agents in one repository
 
-When several agents share one repository, isolation is mechanical, not social.
-Give each agent its own worktree and branch created from the default branch;
-never build directly on the default branch, and never reuse another agent's
-worktree, branch, or uncommitted work. Before starting, enumerate all open
-pull requests with pagination (on GitHub: `gh api --paginate
-'repos/{owner}/{repo}/pulls?state=open&per_page=100' --jq '.[].number'`, then
-`gh pr diff <n> --name-only` for each) and check their changed files; if the
-task needs files another change is editing, stop and ask for direction
-instead of proceeding. If the enumeration fails or is bounded, report
-incomplete coverage rather than no overlap. Resolve lockfile conflicts
-by regenerating, never by hand-merging.
+Isolation is mechanical, not social. Each agent gets its own worktree and a
+branch from the default branch. Never build on the default branch, and never
+reuse another agent's worktree, branch, or uncommitted work.
 
-Worktrees do not isolate shared machine resources. Confirm a dev-server port
-answers the process of the agent authorized to execute the task before
-trusting what it serves, and never run schema experiments against a shared
-database. A green check served by another agent's process is not this task's
-evidence.
+Before starting, enumerate every open pull request with pagination and check
+its changed files. On GitHub:
 
-Short, clear messages are sufficient for routine work. Avoid requiring a report,
-manifest, meeting, or extra reviewer for every exchange. The lead consolidates
-results and informs dependent owners when a decision changes.
+```sh
+gh api --paginate 'repos/{owner}/{repo}/pulls?state=open&per_page=100' --jq '.[].number'
+gh pr diff <n> --name-only
+```
+
+If the task needs files another change is editing, stop and ask. If the
+enumeration fails or was bounded, report incomplete coverage, not "no
+overlap". Resolve lockfile conflicts by regenerating, never by hand-merging.
+
+Worktrees don't isolate the machine. Confirm a dev-server port answers the
+authorized agent's own process before trusting what it serves, and never run
+schema experiments against a shared database. A green check served by
+another agent's process is not this task's evidence.
+
+Routine exchanges need short messages, not a report, manifest, meeting, or
+extra reviewer each time. The lead consolidates results and tells dependent
+owners when a decision changes.
 
 ## Delivery, interruption, and recovery
 
-Sending a message, receiving an acknowledgment, completing work, and accepting its
-result are distinct events. Use task identity and observed state to avoid treating
-an old completion notice as the answer to a new assignment.
+Sending, acknowledgment, completion, and acceptance are four different
+events. Use the task id and observed state so an old completion isn't read
+as the answer to a new assignment.
 
-On timeout, inspect the target before resending; delivery may already have
-succeeded. Bound waiting to the urgency and expected task duration. Keep the
-human informed of consequential changes without narrating routine polling.
+On a timeout, inspect the target before resending; the first send may have
+landed. Bound each wait by urgency and expected duration. Tell the human
+about consequential changes, not routine polling.
 
-If a worker becomes unavailable, preserve its evidence and inspect active work
-before reallocating ownership. Stop or isolate any previous writer before another
-can modify the same artifact. An unavailable service is not evidence of poor
-reasoning. After a restart, refresh the contact/session mapping and handoff.
+When a worker becomes unavailable, preserve its evidence and inspect its
+active work before reassigning. Stop or isolate the previous writer before
+anyone else touches the same artifact. An unavailable service says nothing
+about reasoning quality. After a restart, refresh the contact and session
+mapping and re-brief from the record.
 
-A stop or scope change must reach affected workers. Check for active mutations
-and owned temporary resources before assuming the team stopped. A reflection or
-thank-you message is not an instruction to resume old tasks; say so when context
-could be ambiguous.
+A stop or scope change must reach every affected worker. Check for active
+mutations and owned temporary resources before assuming the team stopped. A
+thank-you or reflection message isn't an instruction to resume old work; say
+so when it could be read that way.
 
-On a stop request, promptly notify every active owner, prevent new assignments,
-and preserve existing uncommitted work. Report each owner's observed status;
-an unacknowledged stop is still unconfirmed, not a stopped team. If the channel
-cannot reveal delivery, record that uncertainty and use a bounded attempt to
-communicate the stop rather than resending the old work. Preserve by default;
-discarding, committing, or transferring work follows the existing authority.
-Do not delay a requested summary indefinitely for unreachable workers, or make
-the human choose whether to abandon work merely to end the session.
+On a stop request: notify every active owner, prevent new assignments, and
+preserve uncommitted work. Report each owner's observed status. A stop nobody
+acknowledged is unconfirmed, not done. If the channel can't show delivery,
+record that and make one bounded attempt to communicate the stop, rather than
+resending old work. Preserve by default; discarding, committing, or
+transferring follows existing authority. Don't hold a requested summary
+indefinitely for unreachable workers, and don't make the human choose to
+abandon work just to end the session.
 
 ## Writing for people
 
-Coaching messages, reports, and closing summaries are read by people; write
-them like it. Use plain words over fancy synonyms: use, not utilize; help, not
-facilitate. Prefer active voice and name the actor. Cut filler: in order to
-becomes to, and due to the fact that becomes because. One hedge is enough; a
-stack of them says nothing. Say the mechanism or the number, not the feeling.
-Keep sentences short and vary their length. A sentence that could appear
-unchanged in any project's message says nothing about this one; cut it. Have
-an opinion when the evidence supports one; a neutral list of pros and cons is
-usually an avoidance of judgment. No decorative emoji. Use straight quotes.
-Apply these rules to text you write or change; leave prose you did not touch
-alone.
+Briefs, coaching, reports, and closing summaries are read by people and
+agents alike; write them like it. Plain words: use, not utilize; help, not
+facilitate. Active voice, with the actor named. Cut filler: "in order to"
+becomes "to", "due to the fact that" becomes "because". One hedge is enough.
+Say the mechanism or the number, not the feeling. Keep sentences short and
+vary their length. A sentence that could appear unchanged in any project's
+message says nothing about this one; cut it. Have an opinion when the
+evidence supports one; a neutral list of pros and cons usually dodges the
+judgment. No decorative emoji. Straight quotes. Apply these rules to text you
+write or change; leave prose you didn't touch alone.
 
-## Herdr example: only when selected and available
+## Other channels
 
-Use Herdr when the user selects it or explicitly asks to work with its agents.
-Read the available `herdr` skill if present and inspect installed CLI help before
-control operations. Verify the environment requirement described by that skill.
-Discover the real workspace, pane and agent identifiers; never bake previous
-session IDs or machine paths into this methodology.
-
-The user may create and name all panes. Onboard that roster in place. Respect
-focus and existing work. Read results through the agent/pane surface and use
-shared task paths where accessible. An idle pane proves neither acceptance nor
-an unchanged artifact; inspect the returned evidence for the assigned task.
-
-Other transports should supply the same identity, dispatch, observation and
-handoff functions through their own documented tools. A missing optional Herdr
-skill does not disable leadership through another available, authorized channel.
+Herdr has its own guide: [herdr](herdr.md). Any other transport has to supply
+the same functions through its own documented tools: identity, dispatch,
+observation, and handoff. A missing optional channel skill doesn't stop you
+leading through another authorized channel.

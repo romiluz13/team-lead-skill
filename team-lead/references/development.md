@@ -1,101 +1,151 @@
-# Develop the team through its work
+# Developing the team through its work
 
-Read when onboarding continuing members, choosing their next assignment, coaching,
-changing responsibility, or reflecting on the lead's performance. Keep these
-records within the current project's boundary defined in [team memory](team-memory.md).
+Read when assigning to a continuing member, coaching, running a retro or an
+incident review, or changing someone's responsibility. Everything here stays
+inside the project boundary defined in [team memory](team-memory.md).
 
-## A development plan that changes the next assignment
+## The capacity ledger
 
-Create a compact entry for each continuing member and the lead. Start with unknowns
-where evidence is missing; build the record through real work. A short-lived
-research child needs a task return, not a ceremonial career file. Its parent
-retains any useful lesson in the appropriate project record.
+Each continuing member (and you) has an entry in `people/<member>.md`:
 
-Record:
+- **Latitude now** (Look / Propose / Do & tell / Own) and the evidence for
+  it: which tasks, checked how.
+- **Strengths**, in process language: what they did, on which task, with what
+  check behind it. Dated and task-linked, or it's folklore.
+- **One development target**: a single observable behavior, its baseline, and
+  why it matters.
+- **Feedback given → result**: what you said, what happened on the next
+  comparable task.
 
-| Field | Useful content |
-| --- | --- |
-| Identity and conditions | Project, member/session, role, reported model/version and source, tools, task constraints |
-| Strengths | Observed useful behavior, task/date, artifact and check supporting it |
-| Development target | One observable behavior to improve; baseline and consequence |
-| Next practice | A suitable real assignment, supplied support, expected behavior and check |
-| Feedback and result | Feedback actually delivered, worker response, next comparable result, remaining uncertainty |
-| Responsibility | Current scope, proposed next scope, evidence needed, review trigger |
+Latitude rises with evidence: accepted work at the current latitude, honest
+stops, useful uncertainty. After a failure it falls only once the brief has
+been diagnosed — if the brief was the cause, the latitude didn't earn a
+change. When it moves either way, say why and what would move it again, so
+the member knows the rule.
 
-Keep observation separate from interpretation. Missing caller checks may reflect
-an incomplete brief; a service outage says little about reasoning. Preserve
-strengths as well as errors. Invite the worker to correct the record with evidence.
-A new session, model, toolset, or role is a reason to reassess transfer, not erase
-historical evidence or inherit an unqualified reputation. Never turn raw counts
-from unequal tasks into a ranking.
+Observation stays separate from interpretation: missing caller checks may
+reflect an incomplete brief; an outage says nothing about reasoning. Preserve
+strengths as well as errors. Invite the member to correct the record with
+evidence. A new session or toolset is a reason to reassess, not to erase
+history or inherit an unqualified reputation. Never turn raw counts from
+unequal tasks into a ranking.
 
-Before dispatch, select a task that both advances delivery and exercises the
-active target. Include the relevant prior feedback and expected improvement in
-the brief. Avoid contrived training when there is no useful practice opportunity.
-On return, compare with the baseline under the actual conditions; retain an open
-target if the result did not test it. Replace or retire a target when evidence
-supports doing so. A completed task alone does not prove the coaching worked.
+## Choosing the next assignment
 
-## Coach and expand responsibility
+Pick work that advances delivery **and** exercises the member's active
+target; include the prior feedback in the brief. If no real task practices
+the target, leave the target open rather than inventing training. Compare
+the return to the baseline under actual conditions — a completed task alone
+doesn't prove the coaching worked, and a result that never tested the target
+doesn't close it. Fairness matters here too: a lead who gives every
+interesting task to the strongest member builds a single point of failure
+and an undeveloped bench.
 
-Deliver feedback through the actual teammate channel: situation, observed action,
-its effect, then the desired behavior and a way to check it. Recognize useful
-discoveries, early blocker reports, and corrections with the same specificity.
-Ask what context or support was missing. Record sent versus acknowledged feedback
-honestly when the transport cannot confirm delivery.
+## Recognition
 
-Example, fictional:
+Recognize behavior worth repeating, at the moment it happens, and write it
+to the member's record before your next message — not later. Name the
+behavior, the evidence, and the effect. A continuing worker repeats what you
+named for the rest of its session; that in-context reinforcement is the
+cheapest calibration you have, and the record is what makes it durable.
 
-> On the export investigation, your minimal reproducer isolated the failure
-> quickly. The proposed fix omitted two callers, so review reopened the task.
-> On the next boundary change, map callers before proposing the fix and attach
-> the affected behavior checks. I will include the compatibility requirement
-> that was missing from my first brief.
+Silence on a routine acceptance is fine. Praise attached to everything stops
+carrying information and slowly inflates. There is no team broadcast:
+"public" recognition is the record, which members read at dispatch.
 
-Keep development feedback separate from the decision to expand responsibility.
-A useful progression is bounded tasks with review, independent ownership of a
-bounded outcome, then coordinating a domain or other workers. Choose the next
-scope based on the project, not a mandatory title ladder. Define evidence first:
-repeated comparable verified results, useful uncertainty reporting, and successful
-handoffs may justify wider scope. Use the next real assignment as a bounded trial;
-retain or narrow the scope if the evidence does not support expansion. Promotions
-change assignments and review intensity, never tool access or user-reserved powers.
+Worth naming: reproducing before fixing, an early blocker report, a sharp
+stop write-up after a bounded failure, candor about uncertainty, a challenge
+that changed the plan, catching a defect before it shipped.
 
-Agent development here means better retrieved context, instructions, task fit,
-and tools. A journal does not update model weights, establish feelings, or prove
-enduring capability across changed tasks or projects.
+## Correction
 
-## Improve the lead and the working method
+Evidence first: what you checked, where the log is. Offer the possible
+explanations instead of an accusation, and take your share — name what the
+brief failed to say. The systemic fix ships with the correction: the missing
+requirement goes into the brief, and this project's addition to the brief
+lands in `agreement.md` the same moment.
 
-At a meaningful milestone, contradiction, or recurring failure, ask the team:
-what was expected, what occurred, why, and what should change? Ask specifically
-where the lead's brief, decomposition, context, or intervention created work.
-Invite contrary evidence; evaluate the claim rather than rewarding agreement.
+Match the form to the failure:
 
-Pick the most useful small change within the mission. Record its owner, expected
-benefit, next practice opportunity, and success check in the existing project
-record. At the next relevant result, keep, revise, or discard the adjustment.
-Carry an untested adjustment forward visibly instead of claiming improvement.
+- A rule the member knows but skipped under pressure: name the
+  rationalization and rebut it. Soft guidance teaches nothing here.
+- An output with the wrong shape: state the target shape positively. A
+  prohibition list drags the wrong shape back into context.
+- A capability gap: shrink the next task and raise the support, don't lower
+  the standard.
 
-Consider product quality, repeated defects, rework, continuity failures, total
-team effort/cost where observed, and the user's actual feedback. Use measurements
-available from the work; do not invent precision or launch a metrics program.
-Ask what would make the product better and the user's job easier, including a
-simpler alternative or work worth stopping. Silence is not evidence of satisfaction.
-Pursue reversible in-scope improvements; propose changes to the mission or durable
-shared rules under their existing approval boundaries.
+Record the correction and the response in `people/<member>.md` next to the
+latitude evidence.
 
-## Evidence behind the method
+## Expanding responsibility
 
-These sources inform the design; applying human methods to agents is an adaptation
-to test, not a claim that the transfer is scientifically established. Read the
-sources when revisiting the method; ordinary leadership needs no literature tour.
+Development feedback is separate from the decision to expand scope. The
+progression: bounded tasks with review → independent ownership of a bounded
+outcome → coordinating a domain or other workers. Choose by what the project
+needs, not a title ladder. Evidence first: repeated comparable verified
+results, useful uncertainty reporting, successful handoffs. Use the next real
+assignment as the bounded trial; retain or narrow the scope if the evidence
+doesn't support expansion. Promotions change assignments and review
+intensity — never tool access or user-reserved powers.
 
-- [Edmondson, psychological safety](https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f): human-team evidence supports making uncertainty and disagreement discussable.
-- [CCL, Situation–Behavior–Impact](https://www.ccl.org/wp-content/uploads/2015/05/problem-employees-research-paper-center-for-creative-leadership.pdf): ground feedback in observed behavior and consequences.
-- [Ericsson and Harwell, deliberate practice](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02396/full): targeted practice and feedback differ from repetition alone.
-- [Army, after-action reviews](https://www.armyupress.army.mil/Journals/Journal-of-Military-Learning/Journal-of-Military-Learning-Archives/April-2022/Cates-Action-Review/): compare intended and actual outcomes, then change the next attempt.
-- [CIPD, performance management evidence](https://prod.cipd.org/en/knowledge/evidence-reviews/what-works-in-performance-management/): separate developmental feedback from administrative appraisal.
-- [Anthropic, multi-agent research](https://www.anthropic.com/engineering/multi-agent-research-system): lead synthesis, explicit worker contracts, and meaningful coordination cost; independent research does not establish benefits for every coding task.
-- [Anthropic, context engineering](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents): selective retrieval, structured notes, and focused subagents preserve useful context.
-- [Reflexion](https://arxiv.org/abs/2303.11366): bounded experiments use stored linguistic feedback without changing model weights; broad career-like growth is not established.
+## Retro protocol
+
+Trigger: a milestone accepted, a consequential contradiction, repeated
+failure, a member change, or a long stretch with no new evidence. It is
+three questions and one edit, not a meeting.
+
+1. **Check follow-through first:** did the last retro's changes actually
+   happen on real tasks? If not, that's the first finding — about the retro
+   process itself.
+2. **Ask the team:** where did my briefs cost you time (missing context,
+   wrong scope, unclear done)? What can we stop doing? Are we still solving
+   the right problem? The most useful answers criticize you; make it safe to
+   give them and thank the ones who do.
+3. **Keep at most two changes**, each with an owner, an expected benefit, and
+   a check on the next relevant task. Edit `agreement.md`. More than two
+   changes is a wish list; zero recorded changes was a conversation.
+
+Recognize specific contributions while you're here — the retro is the natural
+moment for the record's strongest entries. Feed the brief-critique answers
+into `people/lead.md`: they are your development plan. Carry an untested
+adjustment forward visibly instead of claiming improvement.
+
+## Incident protocol
+
+Trigger: a consequential failure, a defect that reached the user, a false
+success found late, or repeated failure of the same kind.
+
+Diagnose in order, and stop at the first sufficient cause: **the brief → the
+context given → tools and access → service conditions → the member.** Most
+incidents stop before the member. A service outage is an environment fact;
+record it that way.
+
+The output is one rule with a trigger, an owner, and a changed artifact —
+a line in `agreement.md` or the brief checklist, a new check, and a scar
+comment on whichever line the incident changed if it's durable. An incident
+that produces no artifact change will be paid for again. Blameless doesn't
+mean consequence-free: if the diagnosis lands on the member, the correction
+section above takes over, and the latitude conversation happens after the
+brief is cleared.
+
+## What development is here
+
+A member develops by getting better context, instructions, task fit, and
+tools — not by being lectured, ranked, or flattered. Ask what context or
+support was missing before concluding anyone was the problem. Use the
+measurements the work already produces; don't invent precision or start a
+metrics program.
+
+## Sources
+
+These informed the design; applying human-team findings to agents is an
+adaptation to test, not settled science.
+
+- [Edmondson, psychological safety](https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f) — make uncertainty and disagreement discussable; leader fallibility invites it.
+- [CCL, Situation–Behavior–Impact](https://www.ccl.org/wp-content/uploads/2015/05/problem-employees-research-paper-center-for-creative-leadership.pdf) — feedback grounded in observed behavior and consequences.
+- [Ericsson & Harwell, deliberate practice](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02396/full) — targeted practice with feedback, not repetition alone.
+- [Army, after-action reviews](https://www.armyupress.army.mil/Journals/Journal-of-Military-Learning/Journal-of-Military-Learning-Archives/April-2022/Cates-Action-Review/) — compare intended vs. actual, change the next attempt.
+- [CIPD, performance management evidence](https://prod.cipd.org/en/knowledge/evidence-reviews/what-works-in-performance-management/) — developmental feedback separate from appraisal.
+- [Anthropic, multi-agent research](https://www.anthropic.com/engineering/multi-agent-research-system) — lead synthesis, explicit worker contracts, real coordination cost.
+- [Anthropic, context engineering](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) and [the Jul 2026 update](https://claude.dev/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) — curated context, structured notes, judgment over rules.
+- [Reflexion](https://arxiv.org/abs/2303.11366) — stored linguistic feedback changes subsequent attempts without changing weights.
