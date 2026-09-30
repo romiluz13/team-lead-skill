@@ -39,7 +39,7 @@ anything.
    report waiting for you, an idle teammate with valuable work, a teammate
    quiet past its expected time, then a reflection that's due.
 3. **Act** on that moment.
-4. **Record** in `state.md` before the next dispatch.
+4. **Record** in `state.md`; a task line goes in before its prompt is sent.
 5. **Wait** with a limit. Either the doorbell wakes you, or you use
    `herdr agent wait <name> --timeout <ms>`. Pick the timeout from how long
    the task should take. Don't run a bare polling loop. If your harness can
@@ -48,12 +48,16 @@ anything.
 
 ## Dispatch
 
-- Put the brief in `.team/tasks/<id>.md` and send a short prompt that points
-  to it: `herdr agent prompt <name> "Task <id>: read .team/tasks/<id>.md and
-  start. Ring me when done."` Tiny tasks can go inline.
-- Prompt only a teammate that is `idle` or `done`. Sending text to a
-  `working` agent interleaves with its current turn. If you need to stop
-  work, use the stop procedure below. Don't send a message instead.
+- Put the brief in `<record>/tasks/<id>.md`, where `<record>` is the
+  record root's absolute path
+  ([communication](communication.md#parallel-agents-in-one-repository)), and
+  send a short prompt that points to it: `herdr agent prompt <name> "Task
+  <id>: read <record>/tasks/<id>.md and start. Ring me when done."` Tiny
+  tasks can go inline. A correction uses its attempt id (`Task 7.2`).
+- Prompt only a teammate that is `idle` or `done`. Text sent to a `working`
+  agent may interleave, queue, or behave differently depending on the
+  receiving harness; verify per harness. If you need to stop work, use the
+  stop procedure below. Don't send a message instead.
 - When dispatching to several teammates, send all the prompts without
   `--wait`, then wait on each. `--wait` on the first one leaves the others
   unassigned.
@@ -66,15 +70,19 @@ anything.
 The return happens in two parts:
 
 1. The worker writes its full report to the file named in the brief.
-2. The worker sends one line to your pane:
-   `herdr agent prompt <lead> "DONE <id> <path>"`. Use `BLOCKED <id> <path>`
-   or `QUESTION <id> <path>` in the same way.
+2. The worker waits up to about a minute for your pane to be free
+   (`herdr agent wait <lead> --until idle --until done --timeout 60000`),
+   then sends one line: `herdr agent prompt <lead> "DONE <id> <path>"`. Use
+   `BLOCKED <id> <path>` or `QUESTION <id> <path>` in the same way. On
+   timeout it skips the ring; the file is enough.
 
 Put both steps and your pane's name in every brief that expects a return.
-Tell workers to ring once and not to ring again. Then read the file. The
-message is only a pointer. This keeps report detail out of both transcripts,
-and it survives your own compaction because the file is still on disk. Your
-bounded wait is the backup if a doorbell never arrives.
+Tell workers to ring at most once. The file is authoritative; the ring is
+only a hint. This keeps report detail out of both transcripts, and it
+survives your own compaction because the file is still on disk. A
+foreground `agent wait` on a worker shows you as `working`, so its ring
+gets skipped: run your wait in the background where the harness allows,
+otherwise keep it short and check the expected return files on each wake.
 
 ## Reading a pane
 

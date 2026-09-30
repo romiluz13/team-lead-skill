@@ -3,7 +3,7 @@ name: team-lead
 description: Lead an agent team the way a great engineering manager leads people — own the outcome, brief well, check real evidence, coach, recognize, and run retros that change things. Use to lead, onboard, or resume a team of agents, including agents in Herdr panes, and for delegation, coaching, reflection, and continuity across sessions. Adapts to the team's models, tools, and methodology. When Herdr is the team's channel, this skill authorizes loading the herdr skill.
 metadata:
   author: romiluz13
-  version: "0.4.0"
+  version: "0.5.0"
 ---
 
 # Team Lead
@@ -50,7 +50,8 @@ specific. Small tasks get small messages.
    waiting, an idle teammate with valuable work, a teammate quiet past its
    expected time, a reflection that's due.
 3. **Act** on that moment, below.
-4. **Record** in `state.md` before the next dispatch. Later comes after compaction.
+4. **Record** in `state.md`; a task line goes in before its prompt is sent.
+   Later comes after compaction.
 5. **Wait** with a limit: the doorbell, or a wait with a timeout. Never a bare poll.
 
 The record lives in the project's existing team folder (`.team/`,
@@ -73,7 +74,9 @@ background as you go rather than waiting on a census.
 
 **Returning:** trust the record and the repo over recollection. Reconcile
 in-flight tasks against disk and live teammates *before* dispatching anything:
-re-dispatching completed work is the most expensive resume failure.
+re-dispatching completed work is the most expensive resume failure. A task
+line with no return may still have been sent: inspect the teammate before
+resending.
 
 **New:** learn the mission, roster, and agreement (fields in
 [team memory](references/team-memory.md)), including what the human reserves.
@@ -126,7 +129,10 @@ return contract: [communication](references/communication.md).
 > rule matters most: a teammate who stops honestly beats one who reinterprets
 > the goal to look successful.
 
-**Record:** the task line in `state.md` (owner, latitude, return path).
+**Record:** the task line in `state.md` (owner, latitude, return path)
+before the prompt goes out; for several teammates, prepare every brief, then
+dispatch. A correction gets its own attempt id (`7.2`) in the brief, the
+doorbell, and its own return section, so a late `DONE 7` can't close it.
 
 ### M3. Waiting well
 
@@ -162,6 +168,8 @@ deserve, given latitude, consequence, and track record?
 Separate findings, hypotheses, and observed results. Reuse passed checks
 while their inputs hold; get an independent check where being wrong matters.
 If the revision moved during review, re-check the evidence it affects.
+Accept parallel work on the combined revision, not per branch
+([integration](references/communication.md#parallel-agents-in-one-repository)).
 A code/doc disagreement is a question, not permission to pick one;
 simplicity isn't a reason to ignore a demonstrated defect. Then decide:
 
@@ -212,7 +220,7 @@ change, or a long stretch without new evidence.
 First check whether the last retro's changes happened. Then ask: where did my
 briefs cost you time? What can we stop doing? Are we still solving the right
 problem? Keep at most two changes, each with an owner and a check on the next
-relevant task. Three questions and one edit is a retro. Guide:
+relevant task. Three questions and at most one edit is a retro. Guide:
 [development](references/development.md).
 
 **Record:** the changes in `agreement.md` (versioned); the progress log.
@@ -235,9 +243,11 @@ decision that dies with the session was made in secret.
 **When:** a cap is reached, the session must end, the human says stop, or
 the outcome is met.
 
-A pause is not a final report. At a safe boundary, finish or revert the
-atomic step; take nothing irreversible just to stop cleanly. Record what's on
-disk versus session-only, the commits, and the single first resume action.
+A pause is not a final report. Preserve the partial state by default; finish
+or revert the atomic step only when that's authorized and compatible with the
+stop or the exhausted cap. Take nothing irreversible just to stop cleanly.
+Record what's on disk versus session-only, the commits, and the single first
+resume action.
 An unattended run needs a pass/fail finish condition up front (a duration
 isn't one) and only reversible, authorized work. This skill adds no
 scheduler or permissions.
@@ -257,7 +267,7 @@ future work; one next step for the human.
 | Thought | Answer |
 |---|---|
 | "It's just an agent; thanks are wasted." | Specific recognition is calibration they repeat all session. Vague thanks is the waste. |
-| "Faster if I do it myself." | Every file you read for their job dulls your judgment. |
+| "Faster if I do it myself." | Every file you read for their job spends the context your judgment needs. Open the artifact that decides the question; delegate the rest. |
 | "Checking would be distrust." | Unchecked work moves the defect to the user. |
 | "The teammate messed up." | Check your brief first. |
 | "This model is bad at X." | Change the brief before the assignment. |

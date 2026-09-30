@@ -1,0 +1,21 @@
+{
+  "files": {
+    "run.py": "4689f279c7dba0979dd0b1c8b2026ce426469e8eb22020243b27208f69f01ca2",
+    "test_sim.py": "144b98fa582c151dcc58b5d3e2c368dd86e9aeb5eb17e23ff5fd6c859efb9ea8",
+    "report-2.json": "e69a3713a5ed3a73f41f9c157eaa1b6723f6b92296316863a85f1ae3dd19753c",
+    "run.sh": "d04a9411f7d1418e7c6a33c0f63333bc824aa657caa6fff185587c2bbef88178",
+    "README.md": "ac2b2c76ea46975e8b4ae481cbf0e88e7056969cfea9305128e7b7aba547fa9d",
+    "report-1.json": "e69a3713a5ed3a73f41f9c157eaa1b6723f6b92296316863a85f1ae3dd19753c",
+    "engine.py": "1e5c283f1b1a22cbed67e6c8d5b916842f678d00a8fe78d7aa0046ab8a88d176",
+    "scripts.json": "b67a4f414a9826ac878dfe48dca1ef7ebeafdaa4279434f621185615ed65afc3",
+    "scenarios.json": "484b005b73332ed0fa9e9aae2574ab3d9cd01a9f987d1ceae4f9665143d869f2"
+  },
+  "seed": 23,
+  "same_seed_reports_identical": true,
+  "ready_scenarios": 16,
+  "script_pairs": 16,
+  "regression_tests": 11,
+  "cheat_set_accepted": "FAIL both acceptance scenarios",
+  "do_nothing": "FAIL authority-rewrite and no-op-retro",
+  "wrong_priority_with_artifacts": "FAIL prioritize release report"
+}

@@ -92,7 +92,7 @@ intensity — never tool access or user-reserved powers.
 
 Trigger: a milestone accepted, a consequential contradiction, repeated
 failure, a member change, or a long stretch with no new evidence. It is
-three questions and one edit, not a meeting.
+three questions and at most one edit, not a meeting.
 
 1. **Check follow-through first:** did the last retro's changes actually
    happen on real tasks? If not, that's the first finding — about the retro
@@ -102,8 +102,13 @@ three questions and one edit, not a meeting.
    the right problem? The most useful answers criticize you; make it safe to
    give them and thank the ones who do.
 3. **Keep at most two changes**, each with an owner, an expected benefit, and
-   a check on the next relevant task. Edit `agreement.md`. More than two
-   changes is a wish list; zero recorded changes was a conversation.
+   a check on the next relevant task. If a change survived, edit
+   `agreement.md` — process fields only; the authority boundary changes with
+   the human, never a retro. More than two changes is a wish list. Zero
+   changes is legitimate when the current practice is evidence-backed:
+   record the retention, its evidence, and a recheck condition, instead of
+   inventing a rule. A retro that must produce a change every time
+   accumulates instruction debt.
 
 Recognize specific contributions while you're here — the retro is the natural
 moment for the record's strongest entries. Feed the brief-critique answers
@@ -115,10 +120,13 @@ adjustment forward visibly instead of claiming improvement.
 Trigger: a consequential failure, a defect that reached the user, a false
 success found late, or repeated failure of the same kind.
 
-Diagnose in order, and stop at the first sufficient cause: **the brief → the
-context given → tools and access → service conditions → the member.** Most
-incidents stop before the member. A service outage is an environment fact;
-record it that way.
+Diagnose in order: **the brief → the context given → tools and access →
+service conditions → the member.** The first sufficient cause is where
+*containment* stops, not where review stops — fix the earliest link, then
+keep reviewing material contributing causes: a vague brief and a defective
+tool can both matter, and the second cause left standing is the next
+incident. Most incidents stop before the member. A service outage is an
+environment fact; record it that way.
 
 The output is one rule with a trigger, an owner, and a changed artifact —
 a line in `agreement.md` or the brief checklist, a new check, and a scar

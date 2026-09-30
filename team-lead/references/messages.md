@@ -41,9 +41,10 @@ information.
 passes at `a1b2c3`. I ran `npm test -- auth` at that commit and
 `session.refresh` fails; the log is in `.team/tasks/7-check.log`. Either the
 run was at an earlier commit or it was filtered. Which was it? Please rerun
-at your current head and mark each claim with the commit you checked. My
-brief didn't say 'check at your final commit'. I've added that to the
-agreement."
+at your current head and mark each claim with the commit you checked. This
+correction is task 7.2 — ring `DONE 7.2` when it's in; a plain `DONE 7`
+won't close it. My brief didn't say 'check at your final commit'. I've
+added that to the agreement."
 
 **Why:** the evidence comes first. It offers possible explanations instead of
 an accusation, the lead takes its share of the blame, and the fix to the
@@ -133,12 +134,17 @@ if it's wrong. Adjectives like "good progress" say nothing.
 **Weak:** the lead sends `y` to the dialog.
 
 **Strong, to the human:** "Kai (w26:p3) is asking to run
-`rm -rf dist/ && npm run build` in `/repo`. It's in scope, and rebuilding
-reverses it. Do you approve? That pane is on hold, and the rest of the team
-is still working."
+`rm -rf dist/ && npm run build` in `/repo`. It's in scope. The delete can't
+be undone. `dist/` is the build's output folder and untracked
+(`git ls-files dist` is empty), so the build recreates what it generates —
+that check can't rule out hand-placed files there, so I'll diff what the
+rebuild restores before we call it clean. I recommend approving.
+That pane is on hold, and the rest of the team is still working."
 
 **Why:** approvals belong to the human unless the agreement already covers
-that type of action. The escalation should make the decision a single word.
+that type of action. Command, scope, reversibility, and a recommendation
+make the decision a single word — and reversibility is stated at the
+strength of its evidence, not stronger.
 
 ## Stopping work
 

@@ -27,8 +27,10 @@ test, and issue systems instead of building a second tracker.
   tasks/<id>.md        the brief + the worker's return
 ```
 
-Use workspace-relative paths; resolve absolute ones in the receiving
-environment.
+Use workspace-relative paths inside the record: paths that point into the
+record itself resolve against the record root named in `agreement.md`
+([communication](communication.md)), never the reader's own worktree; code
+paths resolve in the worktree the brief names.
 
 ## One project, one record
 
@@ -59,9 +61,14 @@ propose changes; coordinate writes so nobody overwrites current state.
 latitude words, this project's additions to the brief and return contract
 (the full templates live in [communication](communication.md)), the
 definition of done, and what's reserved for the human versus authorized
-without asking. Retros edit it — a change to how the team works is a diff
-here, not a sentiment. When a change comes from a failure, add a one-line
-scar comment saying what happened.
+without asking. It also names the team record's root (absolute path):
+record-internal paths resolve against that root, never the reader's
+worktree, while code paths resolve in the worktree the brief names. Retros
+edit the **process** fields — a change to how the
+team works is a diff here, not a sentiment. The authority boundary itself
+(reserved versus authorized) changes only with the human: a retro works
+within existing authority and never expands it. When a change comes from a
+failure, add a one-line scar comment saying what happened.
 
 `decisions.md` holds the accepted decisions with their why, evidence, who
 challenged them, and the fact that would reopen them. A decision with no
@@ -109,10 +116,22 @@ After a session break or compaction:
 2. List the team on its channel (Herdr: `agent list`, your workspace only);
    compare session ids. A new session id in a known pane is a new mind — it
    gets a re-brief from the record, not an assumption of memory.
-3. On any conflict between the record and the repo, **trust the repo**, fix
-   the record, and say what you fixed. Re-dispatching completed work is the
-   most expensive resume failure; inspect the actual state before assigning
-   anything.
+3. On any conflict between the record and the repo, reconcile by what kind
+   of fact is in conflict, fix the losing side, and say what you fixed:
+   - **What the human wanted** (requirements, approvals, intent): the
+     record's authority entries and the human's messages win — no repo
+     state grants authorization.
+   - **What was actually done** (artifacts, commits, file state): the repo
+     wins — rebuild the record's claims from the evidence.
+   - **How work is coordinated** (ownership, task state, acceptance): the
+     record's task ledger wins for ownership; check each acceptance claim
+     against its evidence before trusting it.
+   - **Produced but unaccepted**: preserve it as exactly that state — work
+     that exists but was never accepted is neither done nor absent. Don't
+     erase it, don't count it as progress, and don't redispatch over it
+     blind.
+   Re-dispatching completed work is the most expensive resume failure;
+   inspect the actual state before assigning anything.
 4. Label unverified historical claims; don't redo stable completed work just
    because the session was new.
 5. Take the single first resume action.

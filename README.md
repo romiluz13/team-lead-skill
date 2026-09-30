@@ -8,6 +8,16 @@ Most agents either work solo or hallucinate a team: fake teammates, fake progres
 
 It adds leadership. It does not install a mandatory process, pretend to have coworkers, or require any specific tool.
 
+## What's new in 0.5
+
+- **Record before dispatch.** A task exists in the team record before its prompt is sent, so a crash between the two can't orphan or duplicate work.
+- **Corrections carry attempt ids.** A correction to task 7 is task 7.2 — a late `DONE 7` can't close it.
+- **The file is authoritative; the ring is a hint.** Returns are persisted to disk; doorbells ring at most once and skip on a bounded wait, so a foreground-waiting lead never deadlocks the team.
+- **One record root for parallel agents.** Milestone acceptance runs on the combined revision, with one named integration owner.
+- **Fact-type reconciliation on resume.** Human intent, repo artifacts, coordination state, and unaccepted work each have an explicit winner instead of a blanket "trust the repo."
+- **Evidence-backed no-op retros.** Zero changes is legitimate when the current practice is evidence-backed; a retro that must always change something accumulates instruction debt.
+- **A scripted regression suite.** `evals/sim/` runs 16 team-lead scenarios with good/bad action pairs in one command, deterministic per seed — the same suite that gated this release.
+
 ## Install
 
 ```bash
@@ -83,8 +93,12 @@ team-lead/
     communication.md           Assignment/return contracts, delivery, interruption, recovery
     team-memory.md             Project boundaries, worker context, and handoff survival
     development.md             Practice, coaching, responsibility, and lead improvement
+    herdr.md                   Leading agents in Herdr panes (channel, doorbell, waits)
+    messages.md                Worked examples of strong vs. weak lead messages
   agents/
     openai.yaml                Interface metadata for OpenAI-compatible agents
+evals/
+  sim/                         Scripted 16-scenario regression suite (deterministic per seed)
 ```
 
 ## Requirements

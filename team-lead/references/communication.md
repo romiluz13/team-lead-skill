@@ -87,7 +87,10 @@ the brief.
   it before it enters the shared record.
 
 Keep the signal message compact: status, task id, and the path. The detail
-lives in the file.
+lives in the file. The file is authoritative and the signal only a hint:
+write the file first, send the signal at most once, and skip it if the lead
+isn't ready within a bounded wait. The lead's own wait checks the expected
+return files, not only the channel.
 
 A review can target uncommitted or non-Git work. Identify the snapshot with
 an accessible copy or patch and its base, plus a digest when versions could
@@ -156,6 +159,14 @@ authorized agent's own process before trusting what it serves, and never run
 schema experiments against a shared database. A green check served by
 another agent's process is not this task's evidence.
 
+The team record has one root, named by absolute path in `agreement.md`. Each
+agent resolves record paths against that root, never against its own
+worktree; a brief gives the absolute path when worktrees differ.
+
+Name one integration owner for parallel work. Milestone acceptance runs on
+the combined revision; branches that are each green alone don't prove the
+merge is.
+
 Routine exchanges need short messages, not a report, manifest, meeting, or
 extra reviewer each time. The lead consolidates results and tells dependent
 owners when a decision changes.
@@ -164,7 +175,8 @@ owners when a decision changes.
 
 Sending, acknowledgment, completion, and acceptance are four different
 events. Use the task id and observed state so an old completion isn't read
-as the answer to a new assignment.
+as the answer to a new assignment; a correction carries an attempt id
+(`7.2`) and keeps its own return section.
 
 On a timeout, inspect the target before resending; the first send may have
 landed. Bound each wait by urgency and expected duration. Tell the human
