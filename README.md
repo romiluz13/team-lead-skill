@@ -1,5 +1,7 @@
 # team-lead
 
+> **Outdated (v0.5.0, 2026-09-30).** The maintained team-lead now ships inside a larger agentic-engineering factory package, to be published later. This repository is not updated in the meantime.
+
 [![skills.sh](https://skills.sh/b/romiluz13/team-lead-skill)](https://skills.sh/romiluz13/team-lead-skill)
 
 Turn your coding agent into a real team lead for the agents you already have.
